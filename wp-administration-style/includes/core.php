@@ -28,6 +28,7 @@ if ( !class_exists( 'Wp_Administration_Style' ) )
 
             if ( is_gutenberg_active() ) {
                 wp_enqueue_style( 'wp-administration-style::gutenberg', Wp_Administration_Style_Globals::url() . 'static/css/gutenberg.css', [], Wp_Administration_Style_Globals::$version );
+                wp_enqueue_script( 'wp-administration-style::gutenberg', Wp_Administration_Style_Globals::url() . 'static/js/gutenberg.js', [], Wp_Administration_Style_Globals::$version );
             }
 
             if ( is_plugin_active('elementor/elementor.php') ) {
