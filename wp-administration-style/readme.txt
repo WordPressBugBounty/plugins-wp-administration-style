@@ -1,6 +1,6 @@
 ﻿=== WP Administration Style ===
-Stable tag:                 7.1.0
-Version:                    7.1.0
+Stable tag:                 7.1.1
+Version:                    7.1.1
 Tested up to:               6.6.0
 Requires at least:          5.0.0
 Requires PHP:               7.4.33
@@ -27,6 +27,9 @@ Tags:                       Farsi, Farsi UI, فارسی, فونت فارسی, د
 
 
 == Changelog ==
+
+= 7.1.1 =
+- حل مشکل درگ و دراپ در بلاک های گوتنبرگ.
 
 = 7.1.0 =
 - افزودن آیکون سفارشی برای لینک "پرداخت‌ها" (ووکامرس) در سایدبار.

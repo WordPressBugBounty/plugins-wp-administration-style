@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) or die;
 /**
  * Plugin Name:                       WP Administration Style
  * Description:                       Enhances the user interface and user experience of the WordPress dashboard.
- * Version:                           7.1.0
+ * Version:                           7.1.1
  * Tested up to:                      6.6.0
  * Requires at least:                 5.0.0
  * Requires PHP:                      7.4.33
@@ -23,7 +23,7 @@ if ( !class_exists( 'Wp_Administration_Style_Globals' ) )
 {
     final class Wp_Administration_Style_Globals
     {
-        public static $version = '7.1.0';
+        public static $version = '7.1.1';
         public static $tested_up_to = '6.6.0';
         public static $requires_at_least = '5.0.0';
         public static $requires_php = '7.4.33';
