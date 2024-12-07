@@ -1,15 +1,13 @@
 ;(() => {
-    window.addEventListener("load", () => {
-        const iframe = document.querySelector(
-            ".block-editor-iframe__scale-container [name=editor-canvas]"
-        )
+    window.addEventListener('load', () => {
+        const iframe = document.querySelector('.block-editor-iframe__scale-container [name=editor-canvas]')
 
-        console.log("iframe", iframe)
+        console.log('iframe', iframe)
 
         if (!iframe) return
 
         iframe.contentWindow.document.head.insertAdjacentHTML(
-            "beforeend",
+            'beforeend',
             `
 				<style>
                     :root {
@@ -27,7 +25,7 @@
                         left: 0;
                     }
 				</style>
-			`
+			`,
         )
     })
 })()
