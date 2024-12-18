@@ -1,6 +1,6 @@
-;(() => {
-    const font_family_fa = '"Vazirmatn"'
-    const font_family_fa_code = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Vazirmatn"'
+(() => {
+    const font_family_fa = '"Vazirmatn"';
+    const font_family_fa_code = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Vazirmatn"';
     const colors = {
         gray: {
             5: '#FAFAFA',
@@ -14,13 +14,13 @@
             80: '#27272A',
             90: '#18181B',
         },
-    }
+    };
 
     // MCE
     window.addEventListener('load', () => {
-        const wp_editor_wrap = document.querySelector('.wp-editor-wrap')
+        const wp_editor_wrap = document.querySelector('.wp-editor-wrap');
 
-        if (!wp_editor_wrap) return
+        if (!wp_editor_wrap) return;
 
         document.head.insertAdjacentHTML(
             'beforeend',
@@ -47,12 +47,12 @@
 					}
 				</style>
 			`,
-        )
+        );
 
-        const mce_ifr_stylesheet = document.querySelector('#wp_administration_style-mce-ifr-css')
-        if (mce_ifr_stylesheet) mce_ifr_stylesheet.remove()
+        const mce_ifr_stylesheet = document.querySelector('#wp_administration_style-mce-ifr-css');
+        if (mce_ifr_stylesheet) mce_ifr_stylesheet.remove();
 
-        const main_content_ifr = document.getElementById('content_ifr')
+        const main_content_ifr = document.getElementById('content_ifr');
         if (main_content_ifr) {
             main_content_ifr.contentWindow.document.head.insertAdjacentHTML(
                 'beforeend',
@@ -108,11 +108,11 @@
 						}
 					</style>
 				`,
-            )
+            );
         }
 
-        const wp_editor_area = document.querySelector('.wp-editor-area')
-        wp_editor_area.style.setProperty('font-family', font_family_fa_code, 'important')
-        wp_editor_area.style.setProperty('direction', 'ltr', 'important')
-    })
-})()
+        const wp_editor_area = document.querySelector('.wp-editor-area');
+        wp_editor_area.style.setProperty('font-family', font_family_fa_code, 'important');
+        wp_editor_area.style.setProperty('direction', 'ltr', 'important');
+    });
+})();

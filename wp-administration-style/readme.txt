@@ -1,6 +1,6 @@
 ﻿=== WP Administration Style ===
-Stable tag:                 7.2.0
-Version:                    7.2.0
+Stable tag:                 7.2.1
+Version:                    7.2.1
 Tested up to:               6.6.0
 Requires at least:          5.0.0
 Requires PHP:               7.4.33
@@ -29,6 +29,9 @@ Tags:                       Farsi, Farsi UI, فارسی, فونت فارسی, د
 == Changelog ==
 
 ایشالا اگه وردپرس ظاهرکاربری جدید رو منتشر کنه٬ رو اون کار میکنیم.
+
+= 7.2.1 =
+- بهینه‌سازی ظاهر نوار فیلتر در صفحه "افزودن افزونه".
 
 = 7.2.0 =
 - مشکل overflow آواتار در نوار بالا در اندازه صفحه‌نمایش کوچک حل شد.

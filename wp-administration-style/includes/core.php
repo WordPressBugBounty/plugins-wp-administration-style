@@ -1,7 +1,7 @@
 <?php
 namespace WP_ADMINISTRATION_STYLE;
 
-require_once Wp_Administration_Style_Globals::dir() . 'includes/is-gutenberg-active.php';
+require_once WP_ADMINISTRATION_STYLE['PATH'] . 'includes/is-gutenberg-active.php';
 
 defined('ABSPATH') or die();
 
@@ -14,52 +14,52 @@ if (!class_exists('Wp_Administration_Style')) {
 
             // Elementor editor styles
             add_action('elementor/editor/wp_head', [$this, 'farsi_font_face']);
-            add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-editor', Wp_Administration_Style_Globals::url() . 'static/css/elementor-editor.css', [], Wp_Administration_Style_Globals::$version));
-            add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-preview', Wp_Administration_Style_Globals::url() . 'static/css/elementor-preview.css', [], Wp_Administration_Style_Globals::$version));
-            add_action('elementor/editor/after_enqueue_scripts', fn() => wp_enqueue_script('wp-administration-style::elementor-editor', Wp_Administration_Style_Globals::url() . 'static/js/elementor-editor.js', [], Wp_Administration_Style_Globals::$version));
+            add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-editor.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
+            add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-preview', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-preview.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
+            add_action('elementor/editor/after_enqueue_scripts', fn() => wp_enqueue_script('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/elementor-editor.js', [], WP_ADMINISTRATION_STYLE['VERSION']));
         }
 
         function dashboard_styles() {
-            wp_enqueue_style('wp-administration-style::base', Wp_Administration_Style_Globals::url() . 'static/css/base.css', [], Wp_Administration_Style_Globals::$version);
-            wp_enqueue_style('wp-administration-style::uicons', Wp_Administration_Style_Globals::url() . 'static/fonts/wp-administration-style-icons/style.css', [], Wp_Administration_Style_Globals::$version);
-            wp_enqueue_style('wp-administration-style::mce-ifr', Wp_Administration_Style_Globals::url() . 'static/css/mce-ifr.css', [], Wp_Administration_Style_Globals::$version);
+            wp_enqueue_style('wp-administration-style::base', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/base.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+            wp_enqueue_style('wp-administration-style::uicons', WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/wp-administration-style-icons/style.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+            wp_enqueue_style('wp-administration-style::mce-ifr', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/mce-ifr.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
 
             if (is_gutenberg_active()) {
-                wp_enqueue_style('wp-administration-style::gutenberg', Wp_Administration_Style_Globals::url() . 'static/css/gutenberg.css', [], Wp_Administration_Style_Globals::$version);
-                wp_enqueue_script('wp-administration-style::gutenberg', Wp_Administration_Style_Globals::url() . 'static/js/gutenberg.js', [], Wp_Administration_Style_Globals::$version);
+                wp_enqueue_style('wp-administration-style::gutenberg', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/gutenberg.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+                wp_enqueue_script('wp-administration-style::gutenberg', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/gutenberg.js', [], WP_ADMINISTRATION_STYLE['VERSION']);
             }
 
             if (is_plugin_active('elementor/elementor.php')) {
-                wp_enqueue_style('wp-administration-style::elementor', Wp_Administration_Style_Globals::url() . 'static/css/elementor.css', [], Wp_Administration_Style_Globals::$version);
+                wp_enqueue_style('wp-administration-style::elementor', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
             }
 
             if (is_plugin_active('woocommerce/woocommerce.php')) {
-                wp_enqueue_style('wp-administration-style::woocommerce', Wp_Administration_Style_Globals::url() . 'static/css/woocommerce.css', [], Wp_Administration_Style_Globals::$version);
+                wp_enqueue_style('wp-administration-style::woocommerce', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/woocommerce.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
             }
 
-            wp_enqueue_style('wp-administration-style::mce', Wp_Administration_Style_Globals::url() . 'static/css/mce.css', [], Wp_Administration_Style_Globals::$version);
-            wp_enqueue_script('wp-administration-style::js', Wp_Administration_Style_Globals::url() . 'static/js/index.js', [], Wp_Administration_Style_Globals::$version);
+            wp_enqueue_style('wp-administration-style::mce', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/mce.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+            wp_enqueue_script('wp-administration-style::js', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/index.js', [], WP_ADMINISTRATION_STYLE['VERSION']);
         }
 
         function login_styles() {
-            wp_enqueue_style('wp-administration-style::signin', Wp_Administration_Style_Globals::url() . 'static/css/signin.css', [], Wp_Administration_Style_Globals::$version);
-            wp_enqueue_style('wp-administration-style::uicons', Wp_Administration_Style_Globals::url() . 'static/fonts/wp-administration-style-icons/style.css', [], Wp_Administration_Style_Globals::$version);
+            wp_enqueue_style('wp-administration-style::signin', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/signin.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+            wp_enqueue_style('wp-administration-style::uicons', WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/wp-administration-style-icons/style.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
         }
 
         function farsi_font_face() {
             echo '
                 <link rel="preload" href="' .
-                Wp_Administration_Style_Globals::url() .
+                WP_ADMINISTRATION_STYLE['URL'] .
                 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2" as="font" type="font/woff2" crossorigin />
 
                 <style type="text/css">
                     @font-face {
                         font-family: "Vazirmatn";
                         src: url("' .
-                Wp_Administration_Style_Globals::url() .
+                WP_ADMINISTRATION_STYLE['URL'] .
                 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2") format("woff2 supports variations"),
                             url("' .
-                Wp_Administration_Style_Globals::url() .
+                WP_ADMINISTRATION_STYLE['URL'] .
                 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2") format("woff2-variations");
                         font-weight: 100 900;
                         font-display: block;
