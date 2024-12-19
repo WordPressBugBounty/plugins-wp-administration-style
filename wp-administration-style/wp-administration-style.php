@@ -1,12 +1,12 @@
 <?php
-namespace WP_ADMINISTRATION_STYLE;
+namespace Wp_Administration_Style;
 
 defined('ABSPATH') or die();
 
 /**
  * Plugin Name:                       WP Administration Style
  * Description:                       Enhances the user interface and user experience of the WordPress dashboard.
- * Version:                           7.2.1
+ * Version:                           7.3.1
  * Tested up to:                      6.6.0
  * Requires at least:                 5.0.0
  * Requires PHP:                      7.4.33
@@ -20,7 +20,7 @@ defined('ABSPATH') or die();
  */
 
 define('WP_ADMINISTRATION_STYLE', [
-    'VERSION' => '7.2.1',
+    'VERSION' => '7.3.1',
     'PATH' => plugin_dir_path(__FILE__),
     'URL' => plugin_dir_url(__FILE__),
 ]);

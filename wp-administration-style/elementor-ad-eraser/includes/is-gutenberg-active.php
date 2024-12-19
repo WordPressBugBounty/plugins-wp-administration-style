@@ -1,5 +1,5 @@
 <?php
-namespace Wp_Administration_Style;
+namespace Elementor_Ad_Eraser;
 
 defined('ABSPATH') or die();
 

@@ -52,16 +52,20 @@
         const mce_ifr_stylesheet = document.querySelector('#wp_administration_style-mce-ifr-css');
         if (mce_ifr_stylesheet) mce_ifr_stylesheet.remove();
 
+        const linkHtml = mce_ifr_stylesheet
+            ? `<link
+						rel="${mce_ifr_stylesheet.getAttribute('rel')}"
+						id="${mce_ifr_stylesheet.getAttribute('id')}"
+						href="${mce_ifr_stylesheet.getAttribute('href')}"
+					>`
+            : '';
+
         const main_content_ifr = document.getElementById('content_ifr');
         if (main_content_ifr) {
             main_content_ifr.contentWindow.document.head.insertAdjacentHTML(
                 'beforeend',
                 `
-					<link
-						rel="${mce_ifr_stylesheet.getAttribute('rel')}"
-						id="${mce_ifr_stylesheet.getAttribute('id')}"
-						href="${mce_ifr_stylesheet.getAttribute('href')}"
-					>
+					${linkHtml}
 
 					<style>
 						body {
@@ -92,7 +96,7 @@
 						blockquote {
 							margin: 0 0 16px;
 							padding: 24px 32px;
-							border-radius: 6px;
+							border-radius: 4px;
 							box-shadow: 0 0.125rem 0.3rem -0.0625rem rgb(0 0 0 / 3%), 0 0.275rem 0.75rem -0.0625rem rgb(0 0 0 / 6%) !important;
 						}
 						blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, blockquote h6 {

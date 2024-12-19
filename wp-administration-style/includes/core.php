@@ -1,5 +1,5 @@
 <?php
-namespace WP_ADMINISTRATION_STYLE;
+namespace Wp_Administration_Style;
 
 require_once WP_ADMINISTRATION_STYLE['PATH'] . 'includes/is-gutenberg-active.php';
 
@@ -17,6 +17,12 @@ if (!class_exists('Wp_Administration_Style')) {
             add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-editor.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
             add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-preview', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-preview.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
             add_action('elementor/editor/after_enqueue_scripts', fn() => wp_enqueue_script('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/elementor-editor.js', [], WP_ADMINISTRATION_STYLE['VERSION']));
+
+            add_action('plugins_loaded', function () {
+                if (!class_exists('Elementor_Ad_Eraser')) {
+                    require_once WP_ADMINISTRATION_STYLE['PATH'] . 'elementor-ad-eraser/elementor-ad-eraser.php';
+                }
+            });
         }
 
         function dashboard_styles() {
@@ -50,17 +56,23 @@ if (!class_exists('Wp_Administration_Style')) {
             echo '
                 <link rel="preload" href="' .
                 WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2" as="font" type="font/woff2" crossorigin />
+                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
+                WP_ADMINISTRATION_STYLE['VERSION'] .
+                '" as="font" type="font/woff2" crossorigin />
 
                 <style type="text/css">
                     @font-face {
                         font-family: "Vazirmatn";
                         src: url("' .
                 WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2") format("woff2 supports variations"),
+                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
+                WP_ADMINISTRATION_STYLE['VERSION'] .
+                '") format("woff2 supports variations"),
                             url("' .
                 WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2") format("woff2-variations");
+                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?' .
+                WP_ADMINISTRATION_STYLE['VERSION'] .
+                '") format("woff2-variations");
                         font-weight: 100 900;
                         font-display: block;
                         font-style: normal;
