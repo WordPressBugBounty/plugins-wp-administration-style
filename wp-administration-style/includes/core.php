@@ -19,8 +19,6 @@ if (!class_exists('Wp_Administration_Style')) {
             add_action('elementor/editor/after_enqueue_scripts', fn() => wp_enqueue_script('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/elementor-editor.js', [], WP_ADMINISTRATION_STYLE['VERSION']));
 
             add_action('plugins_loaded', function () {
-                load_plugin_textdomain('wp-administration-style', false, 'wp-administration-style/languages');
-
                 if (!class_exists('Elementor_Ad_Eraser')) {
                     require_once WP_ADMINISTRATION_STYLE['PATH'] . 'elementor-ad-eraser/elementor-ad-eraser.php';
                 }

@@ -4,23 +4,22 @@ namespace Wp_Administration_Style;
 defined('ABSPATH') or die();
 
 /**
- * Plugin Name:                       WP Administration Style
- * Description:                       Enhances the user interface and user experience of the WordPress administration dashboard.
- * Version:                           7.3.2
- * Tested up to:                      6.6.0
- * Requires at least:                 5.0.0
- * Requires PHP:                      7.4.33
- * Author:                            babakfp
+ * Plugin Name:                       استایل مدیریت وردپرس
+ * Description:                       رابط کاربری و تجربه کاربری داشبورد مدیریت وردپرس را بهبود می‌بخشد.
+ * Version:                           7.3.3
+ * Tested up to:                      6.7
+ * Requires at least:                 5.0
+ * Requires PHP:                      7.4
+ * Author:                            بابک فرخوپاک
  * Author URI:                        https://babakfp.ir
  * License:                           GPLv3 or later
  * License URI:                       https://www.gnu.org/licenses/gpl-3.0.html
- * Tags:                              Farsi, Farsi UI, فارسی, فونت فارسی, داشبورد فارسی
+ * Tags:                              Farsi, فونت, فارسی, داشبورد, پیشخوان
  * Text Domain:                       wp-administration-style
- * Domain Path:                       /languages
  */
 
 define('WP_ADMINISTRATION_STYLE', [
-    'VERSION' => '7.3.2',
+    'VERSION' => '7.3.3',
     'PATH' => plugin_dir_path(__FILE__),
     'URL' => plugin_dir_url(__FILE__),
 ]);

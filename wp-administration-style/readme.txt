@@ -1,20 +1,29 @@
-﻿=== WP Administration Style ===
-Stable tag:                 7.3.2
-Version:                    7.3.2
-Tested up to:               6.6.0
-Requires at least:          5.0.0
-Requires PHP:               7.4.33
-Contributors:               Pixer
-Donate link:                https://idpay.ir/babakfp
+﻿=== استایل مدیریت وردپرس ===
+Stable tag:                 7.3.3
+Version:                    7.3.3
+Tested up to:               6.7
+Requires at least:          5.0
+Requires PHP:               7.4
+Contributors:               pixer
 License:                    GPLv3 or later
 License URI:                https://www.gnu.org/licenses/gpl-3.0.html
-Tags:                       Farsi, Farsi UI, فارسی, فونت فارسی, داشبورد فارسی
+Tags:                       Farsi, فونت, فارسی, داشبورد, پیشخوان
 
 رابط کاربری و تجربه کاربری داشبورد مدیریت وردپرس را بهبود می‌بخشد.
 
 == Description ==
 
 فارسی‌سازی, زیباسازی و بهینه‌سازی ظاهر داشبورد مدیریت وردپرس. استفاده از فونت زیبای وزیر برای خوانایی بهتر متون فارسی. با گوتنبرگ و ویرایشگر کلاسیک سازگار میباشد. حذف تبلیغات در ویرایشگر المنتور.
+
+== Frequently Asked Questions ==
+
+= آیا امکان استفاده در سایت‌های انگلیسی زبان وجود دارد؟ =
+
+خیر. این افزونه تنها برای زبان فارسی ساخته شده هست. با استفاده از این افزونه در سایر زبان‌ها ممکن است شاهد مشکلات ظاهری شوید. در نظر نداریم از سایر زبان‌ها پشتیبانی کنیم.
+
+= آیا این افزونه تنظیمات دارد؟ =
+
+خیر. در نظر نداریم تنظیمات‌ای ایجاد یا اضافه کنیم.
 
 == Screenshots ==
 
