@@ -6,7 +6,7 @@ defined('ABSPATH') or die();
 /**
  * Plugin Name:                       استایل مدیریت وردپرس
  * Description:                       رابط کاربری و تجربه کاربری داشبورد مدیریت وردپرس را بهبود می‌بخشد.
- * Version:                           7.3.3
+ * Version:                           7.3.4
  * Tested up to:                      6.7
  * Requires at least:                 5.0
  * Requires PHP:                      7.4
@@ -19,7 +19,7 @@ defined('ABSPATH') or die();
  */
 
 define('WP_ADMINISTRATION_STYLE', [
-    'VERSION' => '7.3.3',
+    'VERSION' => '7.3.4',
     'PATH' => plugin_dir_path(__FILE__),
     'URL' => plugin_dir_url(__FILE__),
 ]);
