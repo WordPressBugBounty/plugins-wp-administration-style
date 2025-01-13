@@ -28,7 +28,6 @@ if (!class_exists('Wp_Administration_Style')) {
         function dashboard_styles() {
             wp_enqueue_style('wp-administration-style::base', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/base.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
             wp_enqueue_style('wp-administration-style::uicons', WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/wp-administration-style-icons/style.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
-            wp_enqueue_style('wp-administration-style::mce-ifr', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/mce-ifr.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
 
             if (is_gutenberg_active()) {
                 wp_enqueue_style('wp-administration-style::gutenberg', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/gutenberg.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
@@ -54,15 +53,15 @@ if (!class_exists('Wp_Administration_Style')) {
 
         function farsi_font_face() {
             echo '
-                <link rel="preload" href="' .
+                <link id="wp-administration-style-vazirmatn-link" rel="preload" href="' .
                 WP_ADMINISTRATION_STYLE['URL'] .
                 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
                 WP_ADMINISTRATION_STYLE['VERSION'] .
                 '" as="font" type="font/woff2" crossorigin />
 
-                <style type="text/css">
+                <style id="wp-administration-style-vazirmatn-style" type="text/css">
                     @font-face {
-                        font-family: "Vazirmatn";
+                        font-family: "wp-administration-style-vazirmatn";
                         src: url("' .
                 WP_ADMINISTRATION_STYLE['URL'] .
                 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .

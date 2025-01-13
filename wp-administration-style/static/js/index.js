@@ -1,6 +1,6 @@
 (() => {
-    const font_family_fa = '"Vazirmatn"';
-    const font_family_fa_code = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Vazirmatn"';
+    const font_family_fa = '"wp-administration-style-vazirmatn"';
+    const font_family_fa_code = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "xxxVazirmatnxxx"';
     const colors = {
         gray: {
             5: '#FAFAFA',
@@ -26,47 +26,27 @@
             'beforeend',
             `
 				<style>
-					/* both content types toolbar */
-					/*
-							.quicktags-toolbar,
-					.mce-toolbar-grp,
-					.wp-editor-tools {
-					width: 100% !important;
-					position: unset !important;
-					top: unset !important;
-					}
-							*/
-
-							.mce-toolbar-grp {
-								border-right: 2px solid #e5e7eb !important;
-							}
+                    .mce-toolbar-grp {
+                        border-right: 2px solid #e5e7eb !important;
+                    }
 
 					.mce-statusbar {
-								height: 0 !important;
-								overflow: hidden;
+                        height: 0 !important;
+                        overflow: hidden;
 					}
 				</style>
 			`,
         );
 
-        const mce_ifr_stylesheet = document.querySelector('#wp_administration_style-mce-ifr-css');
-        if (mce_ifr_stylesheet) mce_ifr_stylesheet.remove();
-
-        const linkHtml = mce_ifr_stylesheet
-            ? `<link
-						rel="${mce_ifr_stylesheet.getAttribute('rel')}"
-						id="${mce_ifr_stylesheet.getAttribute('id')}"
-						href="${mce_ifr_stylesheet.getAttribute('href')}"
-					>`
-            : '';
-
         const main_content_ifr = document.getElementById('content_ifr');
         if (main_content_ifr) {
+            const linkElement = document.getElementById('wp-administration-style-vazirmatn-link').cloneNode(true);
+            linkElement.removeAttribute('rel');
+            main_content_ifr.contentWindow.document.head.appendChild(linkElement);
+            main_content_ifr.contentWindow.document.head.appendChild(document.getElementById('wp-administration-style-vazirmatn-style').cloneNode(true));
             main_content_ifr.contentWindow.document.head.insertAdjacentHTML(
                 'beforeend',
                 `
-					${linkHtml}
-
 					<style>
 						body {
 							margin: 26px 16px 16px !important;

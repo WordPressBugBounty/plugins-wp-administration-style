@@ -14,7 +14,7 @@
                         font-family: var(--wp-administration-style-font_family_fa) !important;
                     }
                     :root {
-                        --wp-administration-style-font_family_fa: Vazirmatn;
+                        --wp-administration-style-font_family_fa: wp-administration-style-vazirmatn;
                         --wp-administration-style-font_family_code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace, var(--wp-administration-style-font_family_fa);
 
                         --wp--preset--font-family--manrope: var(--wp-administration-style-font_family_fa) !important;
