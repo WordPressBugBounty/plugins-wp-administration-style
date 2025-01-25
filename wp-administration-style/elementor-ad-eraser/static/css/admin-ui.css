@@ -70,3 +70,18 @@ li:has([href*='admin.php?page=go_elementor_pro']) {
 .e-admin-top-bar__bar-button:has(.eicon-speakerphone) {
     display: none !important;
 }
+
+/* Speed up your website with Image Optimizer by Elementor */
+.notice.e-notice[data-notice_id='plugin_image_optimization'] {
+    display: none !important;
+}
+
+/* /wp-admin/upload.php - Edit with Elementor AI */
+#e-image-ai-attachment-details {
+    display: none !important;
+}
+
+/* /wp-admin/admin.php?page=elementor-role-manager - "Want to give access only to content?" */
+.elementor-role-go-pro {
+    display: none !important;
+}

@@ -11,6 +11,7 @@ if (!class_exists('Wp_Administration_Style')) {
             add_action('admin_head', [$this, 'farsi_font_face']);
             add_action('admin_enqueue_scripts', [$this, 'dashboard_styles']);
             add_action('login_enqueue_scripts', [$this, 'login_styles']);
+            add_action('login_head', [$this, 'farsi_font_face']);
 
             // Elementor editor styles
             add_action('elementor/editor/wp_head', [$this, 'farsi_font_face']);
@@ -69,7 +70,7 @@ if (!class_exists('Wp_Administration_Style')) {
                 '") format("woff2 supports variations"),
                             url("' .
                 WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?' .
+                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
                 WP_ADMINISTRATION_STYLE['VERSION'] .
                 '") format("woff2-variations");
                         font-weight: 100 900;
