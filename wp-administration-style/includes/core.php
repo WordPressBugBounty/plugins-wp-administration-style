@@ -16,7 +16,10 @@ if (!class_exists('Wp_Administration_Style')) {
             // Elementor editor styles
             add_action('elementor/editor/wp_head', [$this, 'farsi_font_face']);
             add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-editor.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
-            add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style('wp-administration-style::elementor-preview', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-preview.css', [], WP_ADMINISTRATION_STYLE['VERSION']));
+            add_action('elementor/preview/enqueue_styles', function () {
+                $this->farsi_font_face();
+                wp_enqueue_style('wp-administration-style::elementor-preview', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/elementor-preview.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
+            });
             add_action('elementor/editor/after_enqueue_scripts', fn() => wp_enqueue_script('wp-administration-style::elementor-editor', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/elementor-editor.js', [], WP_ADMINISTRATION_STYLE['VERSION']));
 
             add_action('plugins_loaded', function () {
@@ -26,7 +29,7 @@ if (!class_exists('Wp_Administration_Style')) {
             });
         }
 
-        function dashboard_styles() {
+        public function dashboard_styles() {
             wp_enqueue_style('wp-administration-style::base', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/base.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
             wp_enqueue_style('wp-administration-style::uicons', WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/wp-administration-style-icons/style.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
 
@@ -47,12 +50,12 @@ if (!class_exists('Wp_Administration_Style')) {
             wp_enqueue_script('wp-administration-style::js', WP_ADMINISTRATION_STYLE['URL'] . 'static/js/index.js', [], WP_ADMINISTRATION_STYLE['VERSION']);
         }
 
-        function login_styles() {
+        public function login_styles() {
             wp_enqueue_style('wp-administration-style::signin', WP_ADMINISTRATION_STYLE['URL'] . 'static/css/signin.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
             wp_enqueue_style('wp-administration-style::uicons', WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/wp-administration-style-icons/style.css', [], WP_ADMINISTRATION_STYLE['VERSION']);
         }
 
-        function farsi_font_face() {
+        public function farsi_font_face() {
             echo '
                 <link id="wp-administration-style-vazirmatn-link" rel="preload" href="' .
                 WP_ADMINISTRATION_STYLE['URL'] .
