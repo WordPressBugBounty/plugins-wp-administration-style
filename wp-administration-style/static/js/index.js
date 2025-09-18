@@ -1,6 +1,4 @@
 (() => {
-    const font_family_fa = '"wp-administration-style-vazirmatn"';
-    const font_family_fa_code = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "xxxVazirmatnxxx"';
     const colors = {
         gray: {
             5: '#FAFAFA',
@@ -40,10 +38,17 @@
 
         const main_content_ifr = document.getElementById('content_ifr');
         if (main_content_ifr) {
-            const linkElement = document.getElementById('wp-administration-style-vazirmatn-link').cloneNode(true);
-            linkElement.removeAttribute('rel');
-            main_content_ifr.contentWindow.document.head.appendChild(linkElement);
+            const vazirmatnLinkElement = document.getElementById('wp-administration-style-vazirmatn-link').cloneNode(true);
+            const vazirmatnNlLinkElement = document.getElementById('wp-administration-style-vazirmatn-nl-link').cloneNode(true);
+
+            vazirmatnLinkElement.removeAttribute('rel');
+            vazirmatnNlLinkElement.removeAttribute('rel');
+
+            main_content_ifr.contentWindow.document.head.appendChild(vazirmatnLinkElement);
+            main_content_ifr.contentWindow.document.head.appendChild(vazirmatnNlLinkElement);
+
             main_content_ifr.contentWindow.document.head.appendChild(document.getElementById('wp-administration-style-vazirmatn-style').cloneNode(true));
+
             main_content_ifr.contentWindow.document.head.insertAdjacentHTML(
                 'beforeend',
                 `
@@ -51,7 +56,7 @@
 						body {
 							margin: 26px 16px 16px !important;
 							color: ${colors.gray[70]};
-							font-family: ${font_family_fa} !important;
+							font-family: var(--wp-administration-style--font-family-sans) !important;
 							background: white !important;
 						}
 						p {
@@ -96,7 +101,7 @@
         }
 
         const wp_editor_area = document.querySelector('.wp-editor-area');
-        wp_editor_area.style.setProperty('font-family', font_family_fa_code, 'important');
+        wp_editor_area.style.setProperty('font-family', 'var(--wp-administration-style--font-family-mono)', 'important');
         wp_editor_area.style.setProperty('direction', 'ltr', 'important');
     });
 })();

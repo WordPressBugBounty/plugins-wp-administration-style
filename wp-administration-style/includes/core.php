@@ -56,32 +56,45 @@ if (!class_exists('Wp_Administration_Style')) {
         }
 
         public function farsi_font_face() {
-            echo '
-                <link id="wp-administration-style-vazirmatn-link" rel="preload" href="' .
-                WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
-                WP_ADMINISTRATION_STYLE['VERSION'] .
-                '" as="font" type="font/woff2" crossorigin />
+            $vazirmatn_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
+            $vazirmatn_nl_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn-NL[wght].woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
 
-                <style id="wp-administration-style-vazirmatn-style" type="text/css">
-                    @font-face {
-                        font-family: "wp-administration-style-vazirmatn";
-                        src: url("' .
-                WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
-                WP_ADMINISTRATION_STYLE['VERSION'] .
-                '") format("woff2 supports variations"),
-                            url("' .
-                WP_ADMINISTRATION_STYLE['URL'] .
-                'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' .
-                WP_ADMINISTRATION_STYLE['VERSION'] .
-                '") format("woff2-variations");
-                        font-weight: 100 900;
-                        font-display: block;
-                        font-style: normal;
-                    }
-                </style>
-            ';
+            echo sprintf(
+                '
+                    <link id="wp-administration-style-vazirmatn-link" rel="preload" href="%1$s" as="font" type="font/woff2" crossorigin />
+                    <link id="wp-administration-style-vazirmatn-nl-link" rel="preload" href="%2$s" as="font" type="font/woff2" crossorigin />
+
+                    <style id="wp-administration-style-vazirmatn-style" type="text/css">
+                        @font-face {
+                            font-family: "wp-administration-style-vazirmatn";
+                            src: url("%1$s") format("woff2 supports variations"), url("%1$s") format("woff2-variations");
+                            font-weight: 100 900;
+                            font-display: block;
+                            font-style: normal;
+                        }
+                        @font-face {
+                            font-family: "wp-administration-style-vazirmatn-nl";
+                            src: url("%2$s") format("woff2 supports variations"), url("%2$s") format("woff2-variations");
+                            font-weight: 100 900;
+                            font-display: block;
+                            font-style: normal;
+                        }
+
+                        :root {
+                            --wp-administration-style--font-family--vazirmatn: "wp-administration-style-vazirmatn";
+                            --wp-administration-style--font-family--vazirmatn-nl: "wp-administration-style-vazirmatn-nl";
+                        
+                            --wp-administration-style--font-family-sans-fallback: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+                            --wp-administration-style--font-family-sans: var(--wp-administration-style--font-family--vazirmatn), var(--wp-administration-style--font-family-sans-fallback), dashicons;
+
+                            --wp-administration-style--font-family-mono-fallback: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+                            --wp-administration-style--font-family-mono: var(--wp-administration-style--font-family--vazirmatn-nl), var(--wp-administration-style--font-family-mono-fallback), dashicons;
+                        }
+                    </style>
+                ',
+                $vazirmatn_font_url,
+                $vazirmatn_nl_font_url,
+            );
         }
     }
 
