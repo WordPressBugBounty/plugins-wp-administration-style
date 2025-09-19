@@ -1,6 +1,13 @@
 (() => {
     window.addEventListener('load', () => {
+        if (!document.body.classList.contains('block-editor-page')) return;
+
+        let countInterval = 0;
+
         const interval = setInterval(() => {
+            if (countInterval > 20) return;
+            countInterval += 1;
+
             const iframe = document.querySelector('.block-editor-iframe__scale-container [name=editor-canvas]');
 
             if (!iframe.contentWindow.document.head) return;
