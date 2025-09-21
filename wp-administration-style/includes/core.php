@@ -56,8 +56,8 @@ if (!class_exists('Wp_Administration_Style')) {
         }
 
         public function farsi_font_face() {
-            $vazirmatn_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn[wght].woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
-            $vazirmatn_nl_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn-NL[wght].woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
+            $vazirmatn_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn.woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
+            $vazirmatn_nl_font_url = WP_ADMINISTRATION_STYLE['URL'] . 'static/fonts/Vazirmatn/Vazirmatn-NL.woff2?v' . WP_ADMINISTRATION_STYLE['VERSION'];
 
             echo sprintf(
                 '
@@ -67,14 +67,14 @@ if (!class_exists('Wp_Administration_Style')) {
                     <style id="wp-administration-style-vazirmatn-style" type="text/css">
                         @font-face {
                             font-family: "wp-administration-style-vazirmatn";
-                            src: url("%1$s") format("woff2 supports variations"), url("%1$s") format("woff2-variations");
+                            src: url("%1$s") format("woff2");
                             font-weight: 100 900;
                             font-display: block;
                             font-style: normal;
                         }
                         @font-face {
                             font-family: "wp-administration-style-vazirmatn-nl";
-                            src: url("%2$s") format("woff2 supports variations"), url("%2$s") format("woff2-variations");
+                            src: url("%2$s") format("woff2");
                             font-weight: 100 900;
                             font-display: block;
                             font-style: normal;
