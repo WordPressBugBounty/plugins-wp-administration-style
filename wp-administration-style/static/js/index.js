@@ -24,10 +24,6 @@
             'beforeend',
             `
 				<style>
-                    .mce-toolbar-grp {
-                        border-right: 2px solid #e5e7eb !important;
-                    }
-
 					.mce-statusbar {
                         height: 0 !important;
                         overflow: hidden;
