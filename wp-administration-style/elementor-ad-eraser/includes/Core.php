@@ -7,6 +7,16 @@ class Core {
     public function __construct() {
         $this->add_custom_styles();
         $this->remove_elementor_ai();
+
+        add_action('elementor/init', function () {
+            // Remove code that replaces: "Thank you for creating with WordPress"
+            remove_filter('admin_footer_text', [\Elementor\Plugin::instance()->admin, 'admin_footer_text']);
+
+            if (!is_plugin_active('elementor-pro/elementor-pro.php')) {
+                // Remove "Get Elementor Pro" link in plugins page (wp-admin/plugins.php) from Elementor plugin.
+                remove_filter('plugin_action_links_' . ELEMENTOR_PLUGIN_BASE, [\Elementor\Plugin::instance()->admin, 'plugin_action_links']);
+            }
+        });
     }
 
     private function add_custom_styles() {
@@ -14,25 +24,24 @@ class Core {
             require Globals::dir('/includes/is_gutenberg_active.php');
 
             if (is_gutenberg_active()) {
-                wp_enqueue_style(Globals::$tag . '-gutenberg', Globals::url('/static/css/gutenberg.css'), [], Globals::$version);
+                wp_enqueue_style(Globals::$text_domain . '-gutenberg', Globals::url('/static/css/gutenberg.css'), [], Globals::$version);
             }
 
-            wp_enqueue_style(Globals::$tag . '-dashboard', Globals::url('/static/css/dashboard.css'), [], Globals::$version);
+            wp_enqueue_style(Globals::$text_domain . '-dashboard', Globals::url('/static/css/dashboard.css'), [], Globals::$version);
         });
 
-        add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style(Globals::$tag . '-elementor-editor', Globals::url('/static/css/elementor-editor.css'), [], Globals::$version));
+        add_action('elementor/editor/after_enqueue_styles', fn() => wp_enqueue_style(Globals::$text_domain . '-elementor-editor', Globals::url('/static/css/elementor-editor.css'), [], Globals::$version));
 
-        add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style(Globals::$tag . '-elementor-preview', Globals::url('/static/css/elementor-preview.css'), [], Globals::$version));
+        add_action('elementor/preview/enqueue_styles', fn() => wp_enqueue_style(Globals::$text_domain . '-elementor-preview', Globals::url('/static/css/elementor-preview.css'), [], Globals::$version));
 
         add_action(
             'admin_enqueue_scripts',
             function () {
                 if (!is_plugin_active('elementor-pro/elementor-pro.php')) {
-                    wp_enqueue_style(Globals::$tag . '-dashboard-no-elementor-pro', Globals::url('/static/css/dashboard-no-elementor-pro.css'), [], Globals::$version);
-                    wp_enqueue_script(Globals::$tag . '-dashboard-no-elementor-pro', Globals::url('/static/js/dashboard-no-elementor-pro.js'), [], Globals::$version);
+                    wp_enqueue_style(Globals::$text_domain . '-dashboard-no-elementor-pro', Globals::url('/static/css/dashboard-no-elementor-pro.css'), [], Globals::$version);
                 }
             },
-            100
+            100,
         );
     }
 
@@ -42,7 +51,7 @@ class Core {
             function () {
                 wp_dequeue_style('elementor-ai-editor');
             },
-            100
+            100,
         );
 
         add_action(
@@ -50,7 +59,7 @@ class Core {
             function () {
                 wp_dequeue_style('elementor-ai-layout-preview');
             },
-            100
+            100,
         );
 
         if (is_admin()) {
@@ -59,7 +68,14 @@ class Core {
                 function () {
                     wp_dequeue_script('elementor-ai-media-library');
                 },
-                100
+                100,
+            );
+            add_action(
+                'admin_head',
+                function () {
+                    wp_dequeue_script('elementor-ai-media-library');
+                },
+                100,
             );
         }
 
@@ -69,7 +85,7 @@ class Core {
                 wp_dequeue_script('elementor-ai');
                 wp_dequeue_script('elementor-ai-layout');
             },
-            100
+            100,
         );
 
         add_action(
@@ -77,7 +93,7 @@ class Core {
             function () {
                 wp_dequeue_script('elementor-ai-gutenberg');
             },
-            100
+            100,
         );
 
         add_action(
@@ -88,7 +104,7 @@ class Core {
                 // "Optimize your images to enhance site performance by using Image Optimizer". I think this is a paid plugin (or at least it requires login). Not sure if this works.
                 wp_dequeue_script('media-hints');
             },
-            100
+            100,
         );
     }
 }

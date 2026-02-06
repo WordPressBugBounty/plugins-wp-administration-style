@@ -1,11 +1,9 @@
-/* When Elementor Pro is not active:
-- Hide "Elementor" > ("Custom Code" & "Custom Icons" & "Custom Fonts" & "Submissions" & "Get Help") menu item.
-because they are paid features. */
+/* Hide because they are paid features: WordPress Admin Menu > "Elementor" > "Custom Code", "Custom Icons", "Custom Fonts", "Submissions", "Upgrade" */
 .wp-submenu li:has([href*='admin.php?page=elementor_custom_code']),
 .wp-submenu li:has([href*='admin.php?page=elementor_custom_icons']),
 .wp-submenu li:has([href*='admin.php?page=e-form-submissions']),
 .wp-submenu li:has([href*='admin.php?page=elementor_custom_fonts']),
-.wp-submenu li:has([href*='admin.php?page=go_knowledge_base_site']) {
+.wp-submenu li:has([href*='admin.php?page=go_elementor_pro']) {
     display: none !important;
 }
 
@@ -26,5 +24,16 @@ a[href='edit.php?post_type=elementor_library&page=popup_templates'],
 
 /* Big banner saying "Go Pro, Go Limitless" */
 #ehe-admin-cb {
+    display: none !important;
+}
+
+/* wp-admin/index.php > Dashboard Widgets > "Elementor Overview" > Footer Links */
+.e-overview__go-pro {
+    display: none !important;
+}
+
+/* wp-admin/admin.php?page=elementor-element-manager */
+.components-flex-item a[href="https://go.elementor.com/go-pro-advanced-element-manager-permissions/"]
+{
     display: none !important;
 }

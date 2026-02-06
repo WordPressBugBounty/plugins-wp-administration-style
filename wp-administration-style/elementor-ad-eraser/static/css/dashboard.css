@@ -1,7 +1,5 @@
-/* in elementor menu on the sidebar */
-.wp-submenu
-/* the "Upgrade" element at the end of the menu */
-li:has([href*='admin.php?page=go_elementor_pro']) {
+/* Hide: WordPress Admin Menu > "Elementor" > "Get Help" */
+.wp-submenu li:has([href*='admin.php?page=go_knowledge_base_site']) {
     display: none !important;
 }
 
@@ -30,13 +28,6 @@ li:has([href*='admin.php?page=go_elementor_pro']) {
     }
 }
 
-/* In media upload page (/wp-admin/upload.php) */
-.upload-php
-/* "Generate with Elementor AI" link */
-#e-image-ai-media-library {
-    display: none !important;
-}
-
 /* Header in "/wp-admin/admin.php?page=elementor" */
 /* "Add-ons", "What's New" links */
 .e-admin-top-bar__bar-button[href*='admin.php?page=elementor-apps'],
@@ -49,12 +40,12 @@ li:has([href*='admin.php?page=go_elementor_pro']) {
     display: none !important;
 }
 
-/* /wp-admin/upload.php - Edit with Elementor AI */
-#e-image-ai-attachment-details {
+/* wp-admin/index.php > Dashboard Widgets > "Elementor Overview" > Footer Links */
+.e-overview__ai {
     display: none !important;
 }
 
-/* /wp-admin/admin.php?page=elementor-role-manager - "Want to give access only to content?" */
+/* wp-admin/admin.php?page=elementor-role-manager > "Want to give access only to content?" */
 .elementor-role-go-pro {
     display: none !important;
 }
