@@ -1,0 +1,4 @@
+saveExact: true
+packageLock: false
+allowBuilds:
+    '@parcel/watcher': true

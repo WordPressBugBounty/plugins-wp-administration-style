@@ -1,0 +1,3 @@
+[submodule "elementor-ad-eraser"]
+	path = elementor-ad-eraser
+	url = https://github.com/babakfp/elementor-ad-eraser.git

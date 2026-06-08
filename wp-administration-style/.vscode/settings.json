@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "search.exclude": {
+        "static/css": true,
+        "elementor-ad-eraser": true
+    }
+}

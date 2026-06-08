@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "submodule": "git submodule update --init --remote --depth=1",
+        "dev": "sass -q static/scss/base/index.scss:static/css/base.css static/scss/gutenberg/index.scss:static/css/gutenberg.css static/scss/mce/index.scss:static/css/mce.css static/scss/elementor/index.scss:static/css/elementor.css static/scss/elementor-builder/editor.scss:static/css/elementor-editor.css static/scss/elementor-builder/preview.scss:static/css/elementor-preview.css static/scss/woocommerce/index.scss:static/css/woocommerce.css static/scss/signin/index.scss:static/css/signin.css --no-source-map --style=compressed --watch",
+        "build": "sass -q static/scss/base/index.scss:static/css/base.css static/scss/gutenberg/index.scss:static/css/gutenberg.css static/scss/mce/index.scss:static/css/mce.css static/scss/elementor/index.scss:static/css/elementor.css static/scss/elementor-builder/editor.scss:static/css/elementor-editor.css static/scss/elementor-builder/preview.scss:static/css/elementor-preview.css static/scss/woocommerce/index.scss:static/css/woocommerce.css static/scss/signin/index.scss:static/css/signin.css --no-source-map --style=compressed",
+        "format": "prettier -w ."
+    },
+    "devDependencies": {
+        "@prettier/plugin-php": "0.25.0",
+        "prettier": "3.8.3",
+        "sass": "1.100.0"
+    },
+    "type": "module"
+}
