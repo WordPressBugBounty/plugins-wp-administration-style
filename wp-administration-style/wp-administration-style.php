@@ -6,8 +6,8 @@ defined('ABSPATH') or die();
 /**
  * Plugin Name:                       استایل مدیریت وردپرس
  * Description:                       زیباسازی داشبورد مدیریت وردپرس به همراه فونت فارسی وزیرمتن برای خوانایی بهتر، سازگار با گوتنبرگ و ویرایشگر کلاسیک، حذف تبلیغات المنتور.
- * Version:                           7.4.16
- * Tested up to:                      7.0
+ * Version:                           7.5.0
+ * Tested up to:                      7.1
  * Requires at least:                 5.0
  * Requires PHP:                      7.4
  * Author:                            بابک فرخوپاک
@@ -19,7 +19,7 @@ defined('ABSPATH') or die();
  */
 
 define('WP_ADMINISTRATION_STYLE', [
-    'VERSION' => '7.4.16',
+    'VERSION' => '7.5.0',
     'PATH' => plugin_dir_path(__FILE__),
     'URL' => plugin_dir_url(__FILE__),
 ]);
